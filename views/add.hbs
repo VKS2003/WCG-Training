@@ -1,0 +1,76 @@
+<div class="container pt-5">
+    <div >
+        <a href="/employee" class="btn btn-primary " role="button">Back</a>
+    </div>
+    <h4 class="text-center mt-4">Add New Employee</h4>
+    <form id="myForm" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="emp_name" class="form-label">Name :</label>
+          <input type="text" class="form-control"  name="emp_name"/>
+        </div>
+        <div class="mb-3">
+          <label for="emp_email" class="form-label">Email address :</label>
+          <input type="email" class="form-control" name="emp_email"/>
+        </div>
+        <div class="mb-3">
+            <label for="emp_gender" class="form-label">Gender :</label>
+            <div class="form-check male-radio">
+                <label class="form-check-label" for="gender">
+                    Male
+                </label>
+                <input class="form-check-input" type="radio" name="emp_gender" value="male">
+            </div>
+            <div class="form-check female-radio">
+                <label class="form-check-label" for="female">
+                    Female
+                </label>
+                <input class="form-check-input" type="radio" name="emp_gender" value="female">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="emp_department" class="form-label">Department :</label>
+            <select class="form-select" aria-label="Default select example" name="emp_department">
+                <option value="" selected>Select Department</option>
+                <option value="NodeJS">NodeJS</option>
+                <option value="ReactJS">ReactJS</option>
+                <option value="PHP">PHP</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="emp_designation" class="form-label">Designation :</label>
+            <select class="form-select" aria-label="Default select example" name="emp_designation" >
+                <option selected value="">Select Designation</option>
+                <option value="Junior Developer">Junior Developer</option>
+                <option value="Senior Developer">Senior Developer</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="emp_resume" class="form-label">Resume :</label>
+            <input type="file" class="form-control" name="emp_resume"/>
+        </div>
+        <div class="mb-3">
+            <label for="emp_address" class="form-label">Address :</label>
+            <select class="form-select d-inline country" aria-label="Default select example" style="width: 200px;" name="country" >
+                <option selected value="">Select Country</option>
+                {{#each countries}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            <select class="form-select d-inline state" aria-label="Default select example" style="width: 200px;" name="state" disabled >
+                <option selected value="">Select State</option>
+            </select>
+            <select class="form-select d-inline city" aria-label="Default select example" style="width: 200px;" name="city" disabled >
+                <option selected value="">Select City</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary submit">Submit</button>
+    </form>
+</div>
+
+{{#section 'script'}}
+    <script>
+        $(function(){
+            new addEmployee()
+        })
+    </script>
+{{/section}}

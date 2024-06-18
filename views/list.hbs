@@ -1,0 +1,28 @@
+<div class="container pt-5 empList">
+  <h3 class="text-center">Employee List</h3>
+  <a href="/employee/add-employee" class="btn btn-primary " role="button">Add New Employee</a>
+  <table class="table mt-4">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Gender</th>
+      <th>Department</th>
+      <th>Designation</th>
+      <th>Address</th>
+      <th>Resume</th>
+      <th>Delete</th>
+    </tr>
+    {{#each empData}}
+      <tr>
+        <td>{{emp_name}}</td>
+        <td>{{emp_email}}</td>
+        <td>{{emp_gender}}</td>
+        <td>{{emp_department}}</td>
+        <td>{{emp_designation}}</td>
+        <td>{{emp_address.city}},{{emp_address.state}},{{emp_address.country}}</td>
+        <td><a href="{{../publicUrl}}/{{emp_resume}}" class="btn btn-primary " role="button">View</a></td>
+        <td><a href="/employee/delete/{{_id}}" class="btn btn-primary " role="button">Delete</a></td>
+      </tr>
+    {{/each}}
+  </table>
+</div>
